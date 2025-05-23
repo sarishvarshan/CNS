@@ -1,34 +1,99 @@
-## EX. NO: 1 : IMPLEMENTATION OF CAESAR CIPHER
- 
+## Ex : 1 caesar cipher Program
+## NAME : SARISH VARSHAN V
+## REG NO :  212223230196
 
 ## AIM:
+To encrypt and decrypt the given message by using Ceaser Cipher encryption algorithm.
+## DESIGN STEPS:
+## Step 1:
+Design of Caeser Cipher algorithnm
+## Step 2:
+Implementation using C or pyhton code
+## Step 3:
+1.	In Ceaser Cipher each letter in the plaintext is replaced by a letter some fixed number of positions down the alphabet.
+2.	For example, with a left shift of 3, D would be replaced by A, E would become B, and so on.
+3.	The encryption can also be represented using modular arithmetic by first transforming the letters into numbers, according to the
+scheme, A = 0, B = 1, Z = 25.
+4.	Encryption of a letter x by a shift n can be described mathematically as, En(x) = (x + n) mod26
+5.	Decryption is performed similarly, Dn (x)=(x - n) mod26
+## PROGRAM :
+## ENCRYPTION:
+#include <stdio.h>
+#include <string.h>
 
-To implement the simple substitution technique named Caesar cipher using C language.
+void encryptCaesarCipher(char* message, int shift) {
+    for (int i = 0; i < strlen(message); i++) {
+        char c = message[i];
+        
+        // Check for uppercase letters
+        if (c >= 'A' && c <= 'Z') {
+            message[i] = ((c - 'A' + shift) % 26) + 'A';
+        }
+        // Check for lowercase letters
+        else if (c >= 'a' && c <= 'z') {
+            message[i] = ((c - 'a' + shift) % 26) + 'a';
+        }
+    }
+}
 
-## DESCRIPTION:
+int main() {
+    char message[100];
+    int shift;
 
-To encrypt a message with a Caesar cipher, each letter in the message is changed using a simple rule: shift by three. Each letter is replaced by the letter three letters ahead in the alphabet. A becomes D, B becomes E, and so on. For the last letters, we can think of the
-alphabet as a circle and "wrap around". W becomes Z, X becomes A, Y bec mes B, and Z
-becomes C. To change a message back, each letter is replaced by the one three before it.
+    printf("Enter a message: ");
+    fgets(message, sizeof(message), stdin);
+    message[strcspn(message, "\n")] = 0;  // Remove newline character
 
-## EXAMPLE:
+    printf("Enter shift value: ");
+    scanf("%d", &shift);
 
+    // Encrypt the message
+    encryptCaesarCipher(message, shift);
+    printf("Encrypted Message: %s\n", message);
 
+    return 0;
+}
+## OUTPUT:
+ 
+## DECRYTION:
+#include <stdio.h>
+#include <string.h>
 
-![image](https://github.com/Hemamanigandan/CNS/assets/149653568/eb9c6c43-8c80-4cdd-b9d4-91705a311c79)
+void decryptCaesarCipher(char* message, int shift) {
+    for (int i = 0; i < strlen(message); i++) {
+        char c = message[i];
+        
+        // Check for uppercase letters
+        if (c >= 'A' && c <= 'Z') {
+            message[i] = ((c - 'A' - shift + 26) % 26) + 'A';
+        }
+        // Check for lowercase letters
+        else if (c >= 'a' && c <= 'z') {
+            message[i] = ((c - 'a' - shift + 26) % 26) + 'a';
+        }
+    }
+}
 
+int main() {
+    char message[100];
+    int shift;
 
-## ALGORITHM:
+    printf("Enter an encrypted message: ");
+    fgets(message, sizeof(message), stdin);
+    message[strcspn(message, "\n")] = 0;  // Remove newline character
 
-### STEP-1: Read the plain text from the user.
-### STEP-2: Read the key value from the user.
-### STEP-3: If the key is positive then encrypt the text by adding the key with each character in the plain text.
-### STEP-4: Else subtract the key from the plain text.
-### STEP-5: Display the cipher text obtained above.
+    printf("Enter shift value used for encryption: ");
+    scanf("%d", &shift);
 
+    // Decrypt the message
+    decryptCaesarCipher(message, shift);
+    printf("Decrypted Message: %s\n", message);
 
-PROGRAM :-
+    return 0;
+}
+## OUTPUT:
+ 
+## RESULT:
+The program is executed successfully
+________________________________________
 
-
-
-OUTPUT :-
