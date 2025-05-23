@@ -18,6 +18,7 @@ scheme, A = 0, B = 1, Z = 25.
 5.	Decryption is performed similarly, Dn (x)=(x - n) mod26
 ## PROGRAM :
 ## ENCRYPTION:
+```
 #include <stdio.h>
 #include <string.h>
 
@@ -53,9 +54,12 @@ int main() {
 
     return 0;
 }
+```
 ## OUTPUT:
- 
+ ![image](https://github.com/user-attachments/assets/fdcb06e0-b21e-492e-8de1-a7c6db20e82f)
+
 ## DECRYTION:
+```
 #include <stdio.h>
 #include <string.h>
 
@@ -91,7 +95,10 @@ int main() {
 
     return 0;
 }
+```
 ## OUTPUT:
+![image](https://github.com/user-attachments/assets/e6e1e00a-e338-43e3-9135-70440b8f2710)
+
  
 ## RESULT:
 The program is executed successfully
